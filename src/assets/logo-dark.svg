@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 150">
+  <defs>
+    <linearGradient id="goldGradD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E9C874"/>
+      <stop offset="50%" stop-color="#D4B15C"/>
+      <stop offset="100%" stop-color="#B8912F"/>
+    </linearGradient>
+  </defs>
+
+  <!-- icon -->
+  <g transform="translate(15,15)">
+    <circle cx="60" cy="60" r="56" fill="#0A2A22"/>
+    <circle cx="60" cy="60" r="49" fill="none" stroke="url(#goldGradD)" stroke-width="1.4"/>
+    <circle cx="60" cy="60" r="44" fill="none" stroke="url(#goldGradD)" stroke-width="0.7"/>
+    <path d="M60 14 L65 22 L60 30 L55 22 Z" fill="url(#goldGradD)"/>
+    <g fill="url(#goldGradD)">
+      <ellipse cx="30" cy="78" rx="5.5" ry="2.6" transform="rotate(-35 30 78)"/>
+      <ellipse cx="35" cy="84" rx="5.5" ry="2.6" transform="rotate(-15 35 84)"/>
+      <ellipse cx="41" cy="88" rx="5.5" ry="2.6" transform="rotate(5 41 88)"/>
+      <ellipse cx="90" cy="78" rx="5.5" ry="2.6" transform="rotate(35 90 78)"/>
+      <ellipse cx="85" cy="84" rx="5.5" ry="2.6" transform="rotate(15 85 84)"/>
+      <ellipse cx="79" cy="88" rx="5.5" ry="2.6" transform="rotate(-5 79 88)"/>
+    </g>
+    <text x="60" y="74" text-anchor="middle" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-style="italic" font-size="46" fill="url(#goldGradD)">RC</text>
+  </g>
+
+  <!-- wordmark -->
+  <text x="168" y="83" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-style="italic" font-size="52" font-weight="700" fill="#F5F1E6">RTC</text>
+  <text x="284" y="83" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-style="italic" font-size="52" font-weight="700" fill="#E9C874">Luxury</text>
+  <text x="170" y="112" font-family="Georgia, 'Times New Roman', serif" font-size="14" letter-spacing="3.5" fill="#E9C874">PRIVATE COLLECTION</text>
+  <circle cx="406" cy="107.5" r="2.2" fill="#E9C874"/>
+  <text x="422" y="112" font-family="Georgia, 'Times New Roman', serif" font-size="14" letter-spacing="3.5" fill="#F5F1E6">WORLD-CLASS RESORTS</text>
+</svg>

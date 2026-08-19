@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E9C874"/>
+      <stop offset="50%" stop-color="#C9A24A"/>
+      <stop offset="100%" stop-color="#9C7A2E"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="#0E3B31"/>
+  <circle cx="60" cy="60" r="49" fill="none" stroke="url(#goldGrad)" stroke-width="1.4"/>
+  <circle cx="60" cy="60" r="44" fill="none" stroke="url(#goldGrad)" stroke-width="0.7"/>
+
+  <!-- top gem accent -->
+  <path d="M60 14 L65 22 L60 30 L55 22 Z" fill="url(#goldGrad)"/>
+
+  <!-- laurel sprigs -->
+  <g fill="url(#goldGrad)">
+    <ellipse cx="30" cy="78" rx="5.5" ry="2.6" transform="rotate(-35 30 78)"/>
+    <ellipse cx="35" cy="84" rx="5.5" ry="2.6" transform="rotate(-15 35 84)"/>
+    <ellipse cx="41" cy="88" rx="5.5" ry="2.6" transform="rotate(5 41 88)"/>
+    <ellipse cx="90" cy="78" rx="5.5" ry="2.6" transform="rotate(35 90 78)"/>
+    <ellipse cx="85" cy="84" rx="5.5" ry="2.6" transform="rotate(15 85 84)"/>
+    <ellipse cx="79" cy="88" rx="5.5" ry="2.6" transform="rotate(-5 79 88)"/>
+  </g>
+
+  <!-- monogram -->
+  <text x="60" y="74" text-anchor="middle" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-style="italic" font-size="46" fill="url(#goldGrad)">RC</text>
+</svg>
