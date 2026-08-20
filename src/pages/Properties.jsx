@@ -1,23 +1,34 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import PageHeader from '../components/PageHeader.jsx'
 import ListingCard from '../components/ListingCard.jsx'
-import { listings } from '../data/listings.js'
-
-const types = ['All Types', ...new Set(listings.map((l) => l.type))]
+import InquireModal from '../components/InquireModal.jsx'
+import { listings as staticListings } from '../data/listings.js'
+import { apiFetch } from '../lib/api.js'
 
 export default function Properties() {
   const [type, setType] = useState('All Types')
   const [query, setQuery] = useState('')
+  const [liveListings, setLiveListings] = useState([])
+  const [inquiring, setInquiring] = useState(null)
+
+  useEffect(() => {
+    apiFetch('/listings')
+      .then((data) => setLiveListings(data.listings.map((l) => ({ ...l, isLive: true }))))
+      .catch(() => setLiveListings([]))
+  }, [])
+
+  const allListings = useMemo(() => [...liveListings, ...staticListings], [liveListings])
+  const types = useMemo(() => ['All Types', ...new Set(allListings.map((l) => l.type))], [allListings])
 
   const filtered = useMemo(() => {
-    return listings.filter((l) => {
+    return allListings.filter((l) => {
       const matchesType = type === 'All Types' || l.type === type
       const matchesQuery =
         query.trim() === '' ||
         `${l.name} ${l.location}`.toLowerCase().includes(query.toLowerCase())
       return matchesType && matchesQuery
     })
-  }, [type, query])
+  }, [allListings, type, query])
 
   return (
     <>
@@ -59,7 +70,11 @@ export default function Properties() {
 
         <div className="mt-6 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((listing) => (
-            <ListingCard key={listing.id} listing={listing} />
+            <ListingCard
+              key={listing.id}
+              listing={listing}
+              onInquire={listing.isLive ? setInquiring : undefined}
+            />
           ))}
         </div>
 
@@ -69,6 +84,8 @@ export default function Properties() {
           </p>
         )}
       </section>
+
+      {inquiring && <InquireModal listing={inquiring} onClose={() => setInquiring(null)} />}
     </>
   )
 }
