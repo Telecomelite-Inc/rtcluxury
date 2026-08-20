@@ -1,0 +1,9 @@
+name = "rtcluxury-api"
+main = "src/index.js"
+compatibility_date = "2025-06-05"
+workers_dev = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "rtcluxury-db"
+database_id = "882e1e87-db22-411d-86ef-6d340f578d97"
