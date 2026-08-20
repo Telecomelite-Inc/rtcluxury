@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import logoLight from '../assets/logo-light.svg'
+import { useAuth } from '../context/AuthContext.jsx'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -12,6 +13,14 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const { owner, logout } = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    await logout()
+    setOpen(false)
+    navigate('/')
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-gold-500/20 bg-cream-light/95 backdrop-blur">
@@ -38,10 +47,30 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <button className="rounded-full bg-emerald-900 px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-cream shadow-gold transition hover:bg-emerald-800">
-            Member Login
-          </button>
+        <div className="hidden items-center gap-3 lg:flex">
+          {owner ? (
+            <>
+              <NavLink
+                to="/dashboard"
+                className="font-body text-[13px] font-medium uppercase tracking-[0.18em] text-emerald-900 hover:text-gold-600"
+              >
+                {owner.name.split(' ')[0]}'s Account
+              </NavLink>
+              <button
+                onClick={handleLogout}
+                className="rounded-full border border-emerald-900 px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-emerald-900 transition hover:bg-emerald-900 hover:text-cream"
+              >
+                Log Out
+              </button>
+            </>
+          ) : (
+            <NavLink
+              to="/login"
+              className="rounded-full bg-emerald-900 px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-cream shadow-gold transition hover:bg-emerald-800"
+            >
+              Member Login
+            </NavLink>
+          )}
         </div>
 
         <button
@@ -72,11 +101,37 @@ export default function Navbar() {
                 </NavLink>
               </li>
             ))}
-            <li>
-              <button className="mt-2 w-full rounded-full bg-emerald-900 px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-cream">
-                Member Login
-              </button>
-            </li>
+            {owner ? (
+              <>
+                <li>
+                  <NavLink
+                    to="/dashboard"
+                    onClick={() => setOpen(false)}
+                    className="text-sm font-medium uppercase tracking-[0.18em] text-emerald-900"
+                  >
+                    {owner.name.split(' ')[0]}'s Account
+                  </NavLink>
+                </li>
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="mt-2 w-full rounded-full border border-emerald-900 px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-emerald-900"
+                  >
+                    Log Out
+                  </button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <NavLink
+                  to="/login"
+                  onClick={() => setOpen(false)}
+                  className="mt-2 block w-full rounded-full bg-emerald-900 px-6 py-2.5 text-center text-[13px] font-semibold uppercase tracking-[0.14em] text-cream"
+                >
+                  Member Login
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
       )}
