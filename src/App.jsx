@@ -6,6 +6,7 @@ import Footer from './components/Footer.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
 import Home from './pages/Home.jsx'
 import Properties from './pages/Properties.jsx'
+import PropertyDetail from './pages/PropertyDetail.jsx'
 import Journal from './pages/Journal.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
@@ -23,6 +24,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/properties" element={<Properties />} />
+            <Route path="/properties/:id" element={<PropertyDetail />} />
             <Route path="/journal" element={<Journal />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
