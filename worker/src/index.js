@@ -48,14 +48,14 @@ if (pathname === '/listings' && method === 'GET') return handlePublicListings(en
 if (pathname === '/listings/mine' && method === 'GET') return handleMyListings(request, env);
 if (pathname === '/listings' && method === 'POST') return handleCreateListing(request, env);
 
-const listingMatch = pathname.match(/^\/listings\/([\w-]+)$/);
+const listingMatch = pathname.match(/^/listings/([w-]+)$/);
 if (listingMatch && method === 'PUT') return handleUpdateListing(request, env, listingMatch[1]);
 if (listingMatch && method === 'DELETE') return handleDeleteListing(request, env, listingMatch[1]);
 
 if (pathname === '/inquiries' && method === 'POST') return handleCreateInquiry(request, env);
 if (pathname === '/inquiries/mine' && method === 'GET') return handleMyInquiries(request, env);
 
-const inquiryMatch = pathname.match(/^\/inquiries\/([\w-]+)$/);
+const inquiryMatch = pathname.match(/^/inquiries/([w-]+)$/);
 if (inquiryMatch && method === 'PUT') return handleUpdateInquiry(request, env, inquiryMatch[1]);
 
 return json({ error: 'Not found' }, 404);
@@ -186,7 +186,7 @@ return json({ owner: updated });
 async function handlePublicListings(env) {
 const { results } = await env.DB.prepare(
 `SELECT l.id, l.name, l.location, l.type, l.image, l.nightly, l.min_nights AS minNights,
-l.blurb, o.name AS owner
+l.blurb, l.description, l.amenities, o.name AS owner
 FROM listings l
 JOIN owners o ON o.id = l.owner_id
 WHERE l.status = 'published'
@@ -199,7 +199,7 @@ async function handleMyListings(request, env) {
 const owner = await getOwnerFromRequest(request, env);
 if (!owner) return json({ error: 'Not authenticated' }, 401);
 const { results } = await env.DB.prepare(
-`SELECT id, name, location, type, image, nightly, min_nights AS minNights, blurb, status, created_at AS createdAt
+`SELECT id, name, location, type, image, nightly, min_nights AS minNights, blurb, description, amenities, status, created_at AS createdAt
 FROM listings WHERE owner_id = ? ORDER BY created_at DESC`
 )
 .bind(owner.id)
@@ -227,8 +227,8 @@ if (err) return json({ error: err }, 400);
 
 const id = crypto.randomUUID();
 await env.DB.prepare(
-`INSERT INTO listings (id, owner_id, name, location, type, image, nightly, min_nights, blurb, status)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'published')`
+`INSERT INTO listings (id, owner_id, name, location, type, image, nightly, min_nights, blurb, description, amenities, status)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'published')`
 )
 .bind(
 id,
@@ -239,7 +239,9 @@ body.type,
 body.image || null,
 Number(body.nightly),
 Number(body.minNights) || 1,
-body.blurb || ''
+body.blurb || '',
+body.description || '',
+body.amenities || ''
 )
 .run();
 
@@ -259,7 +261,7 @@ if (err) return json({ error: err }, 400);
 
 await env.DB.prepare(
 `UPDATE listings
-SET name=?, location=?, type=?, image=?, nightly=?, min_nights=?, blurb=?, status=?, updated_at=datetime('now')
+SET name=?, location=?, type=?, image=?, nightly=?, min_nights=?, blurb=?, description=?, amenities=?, status=?, updated_at=datetime('now')
 WHERE id=?`
 )
 .bind(
@@ -270,6 +272,8 @@ body.image || null,
 Number(body.nightly),
 Number(body.minNights) || 1,
 body.blurb || '',
+body.description || '',
+body.amenities || '',
 body.status || 'published',
 id
 )
@@ -294,7 +298,7 @@ return json({ ok: true });
 
 async function handleCreateInquiry(request, env) {
 const body = await readJson(request);
-const { listingId, guestName, guestEmail, guestPhone, message, checkIn, checkOut } = body;
+const { listingId, guestName, guestEmail, guestPhone, message, checkIn, checkOut, guests } = body;
 if (!listingId || !guestName || !guestEmail) {
 return json({ error: 'Listing, name, and email are required.' }, 400);
 }
@@ -305,8 +309,8 @@ if (!listing) return json({ error: 'Listing not found.' }, 404);
 
 const id = crypto.randomUUID();
 await env.DB.prepare(
-`INSERT INTO inquiries (id, listing_id, owner_id, guest_name, guest_email, guest_phone, message, check_in, check_out)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+`INSERT INTO inquiries (id, listing_id, owner_id, guest_name, guest_email, guest_phone, message, check_in, check_out, guests)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
 )
 .bind(
 id,
@@ -317,7 +321,8 @@ guestEmail,
 guestPhone || null,
 message || '',
 checkIn || null,
-checkOut || null
+checkOut || null,
+Number(guests) || null
 )
 .run();
 
@@ -329,7 +334,7 @@ const owner = await getOwnerFromRequest(request, env);
 if (!owner) return json({ error: 'Not authenticated' }, 401);
 const { results } = await env.DB.prepare(
 `SELECT i.id, i.guest_name AS guestName, i.guest_email AS guestEmail, i.guest_phone AS guestPhone,
-i.message, i.check_in AS checkIn, i.check_out AS checkOut, i.status, i.created_at AS createdAt,
+i.message, i.check_in AS checkIn, i.check_out AS checkOut, i.guests, i.status, i.created_at AS createdAt,
 l.name AS listingName
 FROM inquiries i
 JOIN listings l ON l.id = i.listing_id
