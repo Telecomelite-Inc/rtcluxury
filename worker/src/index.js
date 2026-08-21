@@ -48,14 +48,14 @@ if (pathname === '/listings' && method === 'GET') return handlePublicListings(en
 if (pathname === '/listings/mine' && method === 'GET') return handleMyListings(request, env);
 if (pathname === '/listings' && method === 'POST') return handleCreateListing(request, env);
 
-const listingMatch = pathname.match(/^/listings/([w-]+)$/);
+const listingMatch = pathname.match(/^\/listings\/([\w-]+)$/);
 if (listingMatch && method === 'PUT') return handleUpdateListing(request, env, listingMatch[1]);
 if (listingMatch && method === 'DELETE') return handleDeleteListing(request, env, listingMatch[1]);
 
 if (pathname === '/inquiries' && method === 'POST') return handleCreateInquiry(request, env);
 if (pathname === '/inquiries/mine' && method === 'GET') return handleMyInquiries(request, env);
 
-const inquiryMatch = pathname.match(/^/inquiries/([w-]+)$/);
+const inquiryMatch = pathname.match(/^\/inquiries\/([\w-]+)$/);
 if (inquiryMatch && method === 'PUT') return handleUpdateInquiry(request, env, inquiryMatch[1]);
 
 return json({ error: 'Not found' }, 404);
