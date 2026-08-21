@@ -71,6 +71,12 @@ export default function Inquiries() {
                 </p>
               )}
 
+              {inquiry.guests && (
+                <p className="mt-1 text-xs text-emerald-950/70">
+                  Guests: {inquiry.guests}
+                </p>
+              )}
+
               {inquiry.message && (
                 <p className="mt-3 text-sm text-emerald-950/80">{inquiry.message}</p>
               )}
