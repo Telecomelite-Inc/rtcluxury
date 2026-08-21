@@ -11,6 +11,8 @@ const emptyForm = {
   nightly: '',
   minNights: 3,
   blurb: '',
+  description: '',
+  amenities: '',
   status: 'published',
 }
 
@@ -130,12 +132,37 @@ export default function ListingForm({ listing, onSaved, onCancel }) {
 
       <div>
         <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-emerald-900">
-          Description
+          Short Summary <span className="normal-case text-emerald-950/40">(shown on listing cards)</span>
         </label>
         <textarea
           rows={3}
           value={form.blurb}
           onChange={change('blurb')}
+          className="w-full rounded-lg border border-emerald-900/20 px-4 py-2.5 text-sm focus:border-gold-500 focus:outline-none"
+        />
+      </div>
+
+      <div>
+        <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-emerald-900">
+          Full Description <span className="normal-case text-emerald-950/40">(shown on the listing page)</span>
+        </label>
+        <textarea
+          rows={6}
+          value={form.description}
+          onChange={change('description')}
+          placeholder="Describe the residence in detail — layout, views, standout features&hellip;"
+          className="w-full rounded-lg border border-emerald-900/20 px-4 py-2.5 text-sm focus:border-gold-500 focus:outline-none"
+        />
+      </div>
+
+      <div>
+        <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-emerald-900">
+          Amenities <span className="normal-case text-emerald-950/40">(comma-separated)</span>
+        </label>
+        <input
+          value={form.amenities}
+          onChange={change('amenities')}
+          placeholder="Private Pool, Ocean View, Chef on Request, Wi-Fi"
           className="w-full rounded-lg border border-emerald-900/20 px-4 py-2.5 text-sm focus:border-gold-500 focus:outline-none"
         />
       </div>
