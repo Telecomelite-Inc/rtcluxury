@@ -24,16 +24,24 @@ export default function Contact() {
           <h2 className="font-display text-2xl italic text-emerald-950">Contact details</h2>
           <div className="mt-6 space-y-5 text-sm text-emerald-950/75">
             <div>
-              <p className="font-semibold uppercase tracking-wide text-gold-600">Concierge Line</p>
-              <p className="mt-1">+1 (800) 555-0142</p>
+              <p className="font-semibold uppercase tracking-wide text-gold-600">Company</p>
+              <p className="mt-1">Resort Travel Club, Inc. DBA RTC Luxury</p>
+            </div>
+            <div>
+              <p className="font-semibold uppercase tracking-wide text-gold-600">Phone</p>
+              <p className="mt-1">877-244-1413</p>
             </div>
             <div>
               <p className="font-semibold uppercase tracking-wide text-gold-600">Email</p>
               <p className="mt-1">concierge@rtcluxury.com</p>
             </div>
             <div>
-              <p className="font-semibold uppercase tracking-wide text-gold-600">Owner Applications</p>
-              <p className="mt-1">owners@rtcluxury.com</p>
+              <p className="font-semibold uppercase tracking-wide text-gold-600">Address</p>
+              <p className="mt-1">
+                333 S. Garland Ave, Floor 13
+                <br />
+                Orlando, FL 32801
+              </p>
             </div>
             <div>
               <p className="font-semibold uppercase tracking-wide text-gold-600">Hours</p>
