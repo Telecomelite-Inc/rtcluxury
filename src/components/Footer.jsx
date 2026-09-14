@@ -31,8 +31,8 @@ const columns = [
   {
     title: 'Legal',
     links: [
-      { label: 'Terms & Conditions', to: '/contact' },
-      { label: 'Privacy Policy', to: '/contact' },
+        { label: 'Terms & Conditions', to: '/terms' },
+        { label: 'Privacy Policy', to: '/privacy' },
     ],
   },
 ]
