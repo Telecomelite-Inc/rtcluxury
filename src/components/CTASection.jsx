@@ -21,7 +21,7 @@ export default function CTASection() {
             to="/contact"
             className="rounded-full border border-emerald-900 px-8 py-3 text-sm font-semibold uppercase tracking-widest text-emerald-900 transition hover:bg-emerald-900 hover:text-cream"
           >
-            List Your Residence
+            List Your Property
           </Link>
         </div>
       </div>
