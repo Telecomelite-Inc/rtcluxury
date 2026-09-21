@@ -68,7 +68,7 @@ export default function Navbar() {
               to="/login"
               className="rounded-full bg-emerald-900 px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-cream shadow-gold transition hover:bg-emerald-800"
             >
-              Member Login
+              Owner Login
             </NavLink>
           )}
         </div>
@@ -128,7 +128,7 @@ export default function Navbar() {
                   onClick={() => setOpen(false)}
                   className="mt-2 block w-full rounded-full bg-emerald-900 px-6 py-2.5 text-center text-[13px] font-semibold uppercase tracking-[0.14em] text-cream"
                 >
-                  Member Login
+                  Owner Login
                 </NavLink>
               </li>
             )}
