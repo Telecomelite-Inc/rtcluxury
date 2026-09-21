@@ -14,7 +14,7 @@ const columns = [
   {
     title: 'For Owners',
     links: [
-      { label: 'List Your Residence', to: '/contact' },
+      { label: 'List Your Property', to: '/contact' },
       { label: 'Owner Stories', to: '/journal' },
       { label: 'Why Verify', to: '/about' },
       { label: 'Owner Support', to: '/contact' },
@@ -45,8 +45,8 @@ export default function Footer() {
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <img src={logoDark} alt="RTC Luxury" className="h-10 w-auto" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-cream/70">
-              The private, high-end collection from Resort Travel Club &mdash; hand-verified
-              residences at the world&rsquo;s most exclusive resorts.
+              The private, high-end collection from Resort Travel Club — hand-verified
+              residences at the world’s most exclusive resorts.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {['Verified Owners', 'Owner-Advertised', 'Direct Inquiries'].map((badge) => (
