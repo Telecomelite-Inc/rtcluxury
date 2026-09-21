@@ -1,30 +1,30 @@
-const travelerSteps = [
+const renterSteps = [
   {
-    title: 'Browse the collection',
+    title: 'Browse advertised residences',
     body: 'Explore hand-verified estates, villas and penthouses filtered by destination, style and season.',
   },
   {
-    title: 'Speak with a concierge',
-    body: 'Message the owner directly or request a private concierge to arrange every detail on your behalf.',
+    title: 'Send an inquiry',
+    body: 'Reach out directly about the dates, rates, and details of any residence that catches your eye.',
   },
   {
-    title: 'Arrive with confidence',
-    body: 'Every ownership claim, photo and amenity is verified in advance — no surprises, ever.',
+    title: 'Owner handles the rental',
+    body: 'The owner responds directly to arrange your stay — RTC Luxury does not process bookings or payments.',
   },
 ]
 
 const ownerSteps = [
   {
-    title: 'Apply for verification',
-    body: 'Submit proof of ownership and identity to be considered for the RTC Luxury collection.',
+    title: 'List your residence',
+    body: 'Share your residence details and photos so we can prepare your advertising package.',
   },
   {
-    title: 'Curate your listing',
-    body: 'Our team helps present your residence with professional-grade photography and copy.',
+    title: 'We advertise it',
+    body: 'Your residence is professionally presented across the RTC Luxury collection.',
   },
   {
-    title: 'Host discerning travelers',
-    body: 'Earn from unused weeks while a dedicated team screens every inquiry on your behalf.',
+    title: 'Inquiries come to you',
+    body: 'Renter inquiries are sent straight to you — you handle the rental directly.',
   },
 ]
 
@@ -63,17 +63,17 @@ export default function HowItWorks() {
           How It Works
         </p>
         <h2 className="mt-3 font-display text-3xl italic text-emerald-950 sm:text-4xl">
-          One private club, two ways to belong
+          Built for renters and owners alike
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-sm text-emerald-950/70">
-          Whether you are seeking an unforgettable escape or hold weeks at an exceptional
-          property, every step is verified, discreet, and secure.
+          Whether you are seeking an unforgettable escape or advertising an exceptional
+          property, every step is verified, discreet, and direct.
         </p>
       </div>
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
-        <StepList eyebrow="For Travelers" steps={travelerSteps} cta="Browse Residences" to="/properties" />
-        <StepList eyebrow="For Owners" steps={ownerSteps} cta="Apply as an Owner" to="/contact" />
+        <StepList eyebrow="For Renters" steps={renterSteps} cta="Browse Residences" to="/properties" />
+        <StepList eyebrow="For Owners" steps={ownerSteps} cta="List Your Residence" to="/contact" />
       </div>
     </section>
   )
