@@ -5,10 +5,10 @@ export default function CTASection() {
     <section className="relative overflow-hidden bg-cream">
       <div className="mx-auto max-w-5xl px-6 py-20 text-center lg:px-10">
         <p className="text-xs font-semibold uppercase tracking-widest-lg text-gold-600">
-          Ready to Belong?
+          The RTC Luxury Collection
         </p>
         <h2 className="mx-auto mt-3 max-w-2xl font-display text-3xl italic text-emerald-950 sm:text-4xl">
-          Join a private collection of the world&rsquo;s most exceptional residences
+          Browse the world&rsquo;s most exceptional advertised residences &mdash; or list your own
         </h2>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
