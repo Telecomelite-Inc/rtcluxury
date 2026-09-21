@@ -32,7 +32,7 @@ export default function Login() {
     <>
       <PageHeader
         eyebrow="Owner Portal"
-        title="Member login"
+        title="Owner login"
         subtitle="Sign in to manage your listings, personal information, and guest inquiries."
       />
 
