@@ -45,6 +45,7 @@ export default function ListingCard({ listing, onInquire }) {
             <div className="text-right">
               <p className="font-display text-base text-emerald-950">${listing.nightly.toLocaleString()}</p>
               <p className="text-[11px] text-emerald-950/50">per night &middot; {listing.minNights} night min</p>
+              <p className="text-[10px] text-emerald-950/40">Owner&rsquo;s asking rate. Paid to the owner.</p>
             </div>
           </div>
         </div>
