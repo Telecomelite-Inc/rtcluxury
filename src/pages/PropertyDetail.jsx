@@ -200,14 +200,15 @@ export default function PropertyDetail() {
                 <span className="font-sans text-sm font-normal text-emerald-950/50"> / night</span>
               </p>
               <p className="mt-1 text-xs text-emerald-950/50">{listing.minNights} night minimum stay</p>
+              <p className="mt-1 text-[11px] text-emerald-950/40">Owner&rsquo;s asking rate. Paid to the owner.</p>
 
               {submitted ? (
                 <div className="mt-6 rounded-xl border border-gold-500/20 bg-white/60 p-4 text-center">
-                  <p className="font-display text-base text-emerald-950">Request received</p>
+                  <p className="font-display text-base text-emerald-950">Inquiry received</p>
                   <p className="mt-2 text-xs leading-relaxed text-emerald-950/60">
                     {listing.isLive
                       ? 'The owner has been notified and will follow up with you directly.'
-                      : 'This is a preview listing from our curated collection. Our concierge team will follow up with you directly to confirm availability.'}
+                      : 'This is a preview listing from our curated collection. Someone from our team will follow up with you directly.'}
                   </p>
                 </div>
               ) : !requesting ? (
@@ -215,7 +216,7 @@ export default function PropertyDetail() {
                   onClick={() => setRequesting(true)}
                   className="mt-6 w-full rounded-full bg-emerald-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-cream shadow-gold transition hover:bg-emerald-800"
                 >
-                  Request a Stay
+                  Inquire
                 </button>
               ) : (
                 <form onSubmit={submitRequest} className="mt-6 space-y-4">
@@ -316,7 +317,7 @@ export default function PropertyDetail() {
                     disabled={submitting}
                     className="w-full rounded-full bg-emerald-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-cream shadow-gold transition hover:bg-emerald-800 disabled:opacity-60"
                   >
-                    {submitting ? 'Sending…' : 'Submit Request'}
+                    {submitting ? 'Sending…' : 'Submit Inquiry'}
                   </button>
                 </form>
               )}
