@@ -15,7 +15,7 @@ const renterSteps = [
 
 const ownerSteps = [
   {
-    title: 'List your residence',
+    title: 'List your property',
     body: 'Share your residence details and photos so we can prepare your advertising package.',
   },
   {
@@ -73,7 +73,7 @@ export default function HowItWorks() {
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
         <StepList eyebrow="For Renters" steps={renterSteps} cta="Browse Properties" to="/properties" />
-        <StepList eyebrow="For Owners" steps={ownerSteps} cta="List Your Residence" to="/contact" />
+        <StepList eyebrow="For Owners" steps={ownerSteps} cta="List Your Property" to="/contact" />
       </div>
     </section>
   )
