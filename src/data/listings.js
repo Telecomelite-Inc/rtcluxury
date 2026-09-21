@@ -120,27 +120,27 @@ export const featuredListings = listings.slice(0, 5)
 export const stats = [
   { label: 'Verified Estates', value: '340+' },
   { label: 'Curated Destinations', value: '52' },
-  { label: 'Private Members', value: '6,900+' },
+  { label: 'Interested Renters', value: '6,900+' },
   { label: 'Average Rating', value: '4.9 / 5' },
 ]
 
 export const testimonials = [
   {
     quote:
-      'Every detail was exactly as promised — the verification process gave us total confidence booking a home we’d never seen in person.',
-    name: 'Charlotte H.',
-    role: 'Member since 2023',
-  },
-  {
-    quote:
-      'Listing our estate on RTC Luxury felt effortless, and the caliber of travelers has been exceptional.',
+      'Listing our estate on RTC Luxury felt effortless, and the caliber of renter inquiries has been exceptional.',
     name: 'Daniel Reyes',
     role: 'Verified Owner',
   },
   {
     quote:
-      'The concierge team handled everything from airport transfer to private chef requests. It didn’t feel like a rental — it felt like membership.',
-    name: 'James O.',
-    role: 'Member since 2022',
+      'Advertising with RTC Luxury connected me with renters I never would have reached on my own. The process was simple and professional from start to finish.',
+    name: 'Isabelle Laurent',
+    role: 'Verified Owner',
+  },
+  {
+    quote:
+      'The team made it easy to get our residence in front of the right audience. I’d recommend it to any owner considering advertising their property.',
+    name: 'Khalid Al-Farsi',
+    role: 'Verified Owner',
   },
 ]
