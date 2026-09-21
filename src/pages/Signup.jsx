@@ -31,7 +31,7 @@ export default function Signup() {
       <PageHeader
         eyebrow="Owner Portal"
         title="Create your owner account"
-        subtitle="List your residence with RTC Luxury and manage it directly — availability, details, and guest inquiries, all in one place."
+        subtitle="List your property with RTC Luxury and manage it directly — availability, details, and guest inquiries, all in one place."
       />
 
       <section className="mx-auto max-w-md px-6 py-16 lg:px-10">
