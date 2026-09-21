@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import PageHeader from '../components/PageHeader.jsx'
 
-const reasons = ['General Inquiry', 'I want to book a residence', 'I want to list my residence', 'Press & Partnerships']
+const reasons = ['General Inquiry', 'I want to inquire about an advertised property', 'I want to list my residence', 'Press & Partnerships']
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
@@ -15,8 +15,8 @@ export default function Contact() {
     <>
       <PageHeader
         eyebrow="Get in Touch"
-        title="Speak with our concierge team"
-        subtitle="Whether you're planning a stay or considering listing your residence, our team typically responds within a few hours."
+        title="Get in touch with our team"
+        subtitle="Whether you're interested in an advertised property or considering listing your own residence, our team typically responds within a few hours."
       />
 
       <section className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-5 lg:px-10">
@@ -33,7 +33,7 @@ export default function Contact() {
             </div>
             <div>
               <p className="font-semibold uppercase tracking-wide text-gold-600">Email</p>
-              <p className="mt-1">concierge@rtcluxury.com</p>
+              <p className="mt-1">support@rtcluxury.com</p>
             </div>
             <div>
               <p className="font-semibold uppercase tracking-wide text-gold-600">Address</p>
@@ -55,7 +55,7 @@ export default function Contact() {
             <div className="rounded-2xl border border-gold-500/30 bg-cream-light p-10 text-center">
               <p className="font-display text-2xl italic text-emerald-950">Thank you.</p>
               <p className="mt-3 text-sm text-emerald-950/70">
-                A member of our concierge team will be in touch shortly.
+                Someone from our team will be in touch shortly.
               </p>
             </div>
           ) : (
