@@ -11,13 +11,20 @@ const pillars = [
     body: 'Our team or a trusted local partner walks every property before it joins the collection — photos must match reality.',
   },
   {
-    title: 'Private Concierge',
-    body: 'From first inquiry to checkout, a dedicated concierge is available to arrange transport, chefs, and experiences.',
+    title: 'Direct Owner Contact',
+    body: 'Every inquiry goes straight to the owner, so you can ask questions and arrange details directly — no middleman.',
   },
   {
     title: 'Discretion First',
-    body: 'Members and owners alike can request fully private listings, visible only to pre-approved travelers.',
+    body: 'Owners can request unlisted or limited-visibility advertising for added privacy, arranged directly with our team.',
   },
+]
+
+const pricingTiers = [
+  { weeks: '1 week', price: '$499' },
+  { weeks: '2 weeks', price: '$998' },
+  { weeks: '4 weeks', price: '$1,996' },
+  { weeks: '6 weeks', price: '$2,994' },
 ]
 
 export default function About() {
@@ -25,21 +32,25 @@ export default function About() {
     <>
       <PageHeader
         eyebrow="About RTC Luxury"
-        title="The private collection from Resort Travel Club"
-        subtitle="RTC Luxury was created for one reason: to give discerning travelers a smaller, more rigorously verified circle of the world's finest resort residences."
+        title="The luxury advertising collection from Resort Travel Club"
+        subtitle="RTC Luxury is the luxury advertising collection from Resort Travel Club — connecting owners of exceptional resort residences with renters looking for something special."
       />
 
       <section className="mx-auto max-w-4xl px-6 py-16 lg:px-10">
         <p className="font-display text-2xl italic leading-relaxed text-emerald-950">
-          Resort Travel Club built its reputation on trust — verified timeshare owners,
-          scam-free bookings, and thousands of happy travelers. RTC Luxury takes that same
-          promise and raises it to the level our most discerning members were asking for.
+          Resort Travel Club built its reputation on trust — verified timeshare owners and
+          thousands of satisfied customers. RTC Luxury takes that same standard of verification
+          and applies it to a smaller, more exceptional collection of advertised residences.
         </p>
         <p className="mt-6 text-sm leading-relaxed text-emerald-950/75">
           Every estate, villa and penthouse in the RTC Luxury collection is nominated by its
           owner and admitted only after our verification team confirms ownership, inspects the
           property, and reviews its history. It is a smaller collection by design &mdash; and a
           more accountable one.
+        </p>
+        <p className="mt-6 rounded-2xl border border-gold-500/20 bg-cream-light p-5 text-xs font-semibold uppercase tracking-wide text-emerald-950/60">
+          One-time advertising only. No memberships. RTC Luxury does not collect guest rental
+          payments.
         </p>
       </section>
 
@@ -50,7 +61,7 @@ export default function About() {
               What Sets Us Apart
             </p>
             <h2 className="mt-3 font-display text-3xl italic text-emerald-950 sm:text-4xl">
-              Membership built on trust
+              Built on Trust
             </h2>
           </div>
 
@@ -65,19 +76,45 @@ export default function About() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-6 py-16 lg:px-10">
+        <div className="text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest-lg text-gold-600">
+            For Owners
+          </p>
+          <h2 className="mt-3 font-display text-3xl italic text-emerald-950 sm:text-4xl">
+            Advertising pricing
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-sm text-emerald-950/70">
+            A simple, one-time advertising fee of $499 per week &mdash; no recurring charges, no
+            hidden costs. This is the advertising fee paid by the owner to list a residence; it is
+            not a stay, and RTC Luxury does not collect guest rental payments.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {pricingTiers.map((tier) => (
+            <div key={tier.weeks} className="rounded-2xl border border-gold-500/20 bg-cream-light p-7 text-center">
+              <p className="text-xs font-semibold uppercase tracking-widest-lg text-gold-600">{tier.weeks}</p>
+              <p className="mt-3 font-display text-3xl italic text-emerald-950">{tier.price}</p>
+              <p className="mt-2 text-xs text-emerald-950/50">One-time advertising fee</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto max-w-4xl px-6 py-16 text-center lg:px-10">
         <h2 className="font-display text-2xl italic text-emerald-950 sm:text-3xl">
           Own an exceptional property?
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-sm text-emerald-950/70">
-          We&rsquo;re accepting applications from owners of qualifying villas, estates and
-          resort residences worldwide.
+          We welcome inquiries from owners of qualifying villas, estates and resort residences
+          worldwide.
         </p>
         <Link
           to="/contact"
           className="mt-6 inline-flex rounded-full bg-emerald-900 px-8 py-3 text-sm font-semibold uppercase tracking-widest text-cream shadow-gold transition hover:bg-emerald-800"
         >
-          Apply as an Owner
+          List Your Residence
         </Link>
       </section>
     </>
