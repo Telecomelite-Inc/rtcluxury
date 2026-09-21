@@ -23,7 +23,7 @@ export default function Hero() {
 
       <div className="relative mx-auto flex max-w-5xl flex-col items-center px-6 pb-24 pt-28 text-center lg:pt-36">
         <p className="text-shadow-sm text-xs font-semibold uppercase tracking-widest-lg text-gold-400">
-          By Invitation &middot; Verified Ownership
+          Owner-Advertised &middot; Verified Ownership
         </p>
         <h1 className="mt-5 font-display text-5xl italic text-cream text-shadow-sm sm:text-6xl lg:text-7xl">
           <span className="not-italic text-cream">RTC</span>{' '}
@@ -33,12 +33,13 @@ export default function Hero() {
           The Private Collection &#9670; World-Class Resorts
         </p>
         <p className="mt-7 max-w-2xl text-balance text-base leading-relaxed text-cream/90 sm:text-lg">
-          Hand-verified villas, penthouses and estates from an exclusive network of owners.
-          Every residence inspected, every owner vetted &mdash; reserved for those who expect more.
+          Hand-verified villas, penthouses and estates advertised directly by an exclusive
+          network of owners. Every residence inspected, every owner vetted &mdash; curated for
+          those who expect more.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          {['Verified Owners', 'Private Concierge', 'By-Application Only'].map((pill) => (
+          {['Verified Owners', 'Owner-Advertised', 'Direct Inquiries'].map((pill) => (
             <span
               key={pill}
               className="rounded-full border border-gold-400/50 bg-emerald-950/40 px-4 py-1.5 text-xs font-medium uppercase tracking-wide text-cream backdrop-blur"
@@ -98,7 +99,7 @@ export default function Hero() {
               type="submit"
               className="flex shrink-0 items-center gap-2 rounded-full bg-gold-500 px-5 py-2.5 text-sm font-semibold text-emerald-950 shadow-gold transition hover:bg-gold-400"
             >
-              Search
+              Inquire
             </button>
           </div>
         </form>
