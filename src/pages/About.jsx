@@ -114,7 +114,7 @@ export default function About() {
           to="/contact"
           className="mt-6 inline-flex rounded-full bg-emerald-900 px-8 py-3 text-sm font-semibold uppercase tracking-widest text-cream shadow-gold transition hover:bg-emerald-800"
         >
-          List Your Residence
+          List Your Property
         </Link>
       </section>
     </>
