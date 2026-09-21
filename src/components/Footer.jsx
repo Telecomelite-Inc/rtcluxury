@@ -3,11 +3,11 @@ import logoDark from '../assets/logo-dark.svg'
 
 const columns = [
   {
-    title: 'For Travelers',
+    title: 'For Renters',
     links: [
-      { label: 'Browse Residences', to: '/properties' },
+      { label: 'Browse Properties', to: '/properties' },
       { label: 'How It Works', to: '/about' },
-      { label: 'Concierge Services', to: '/contact' },
+      { label: 'Contact Us', to: '/contact' },
       { label: 'Help Center', to: '/contact' },
     ],
   },
@@ -49,7 +49,7 @@ export default function Footer() {
               residences at the world&rsquo;s most exclusive resorts.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              {['Verified Owners', 'Concierge Support', 'Scam-Free'].map((badge) => (
+              {['Verified Owners', 'Owner-Advertised', 'Direct Inquiries'].map((badge) => (
                 <span
                   key={badge}
                   className="rounded-full border border-gold-500/40 px-3 py-1 text-[11px] uppercase tracking-wide text-gold-400"
@@ -58,6 +58,7 @@ export default function Footer() {
                 </span>
               ))}
             </div>
+            <p className="mt-4 text-xs text-cream/60">support@rtcluxury.com</p>
           </div>
 
           {columns.map((col) => (
