@@ -72,7 +72,7 @@ export default function HowItWorks() {
       </div>
 
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
-        <StepList eyebrow="For Renters" steps={renterSteps} cta="Browse Residences" to="/properties" />
+        <StepList eyebrow="For Renters" steps={renterSteps} cta="Browse Properties" to="/properties" />
         <StepList eyebrow="For Owners" steps={ownerSteps} cta="List Your Residence" to="/contact" />
       </div>
     </section>
