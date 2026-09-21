@@ -12,7 +12,7 @@ export const articles = [
   },
   {
     id: 'best-season-alps',
-    title: 'When to book the French Alps for a private chalet week',
+    title: 'The best season to visit the French Alps for a private chalet week',
     excerpt: 'A season-by-season guide to Courchevel, Megève, and the Trois Vallées.',
     image: img('photo-1728049006252-020dfb896026'),
     category: 'Destinations',
@@ -27,11 +27,11 @@ export const articles = [
     date: 'May 2026',
   },
   {
-    id: 'concierge-101',
-    title: 'What your private concierge can (and will) do',
-    excerpt: 'A look at the requests our concierge team fields most — from private chefs to last-minute transfers.',
+    id: 'inquiry-101',
+    title: 'What to expect when you inquire about a residence',
+    excerpt: 'A look at what typically happens after you send an inquiry — from the owner’s first reply to arranging your stay.',
     image: img('photo-1664876080601-acf03b40c5e3'),
-    category: 'Member Guide',
+    category: 'Renter Guide',
     date: 'April 2026',
   },
 ]
